@@ -1,0 +1,22 @@
+{
+  "general": {
+    "designResolution": {
+      "width": 900,
+      "height": 1600
+    }
+  },
+  "layer": [
+    {
+      "name": "BACKGROUND",
+      "value": 16
+    },
+    {
+      "name": "PLAYER",
+      "value": 32
+    },
+    {
+      "name": "ENEMIES",
+      "value": 64
+    }
+  ]
+}
