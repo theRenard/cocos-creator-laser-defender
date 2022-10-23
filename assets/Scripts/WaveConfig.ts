@@ -13,19 +13,21 @@ const { ccclass, property } = _decorator;
 export class WaveConfig extends Component {
   @property(Prefab) enemyPrefabs: Prefab[] = [];
   @property(Prefab) pathPrefab: Prefab = null;
-  path: Node;
+  pathInstance: Node;
   @property duration: number = 0.5;
   @property timeBetweenSpawns = 0.5;
   @property spawnTimeVariance = 0.3;
   @property minimumSpawnTime = 0.1;
+  spawnerIterator = null;
 
   start() {
     console.log("start", this.node.name);
-    this.path = instantiate(this.pathPrefab);
-    this.spawnEnemies();
+    this.pathInstance = instantiate(this.pathPrefab);
+    this.spawnerIterator = this.spawner();
+    this.spawnEnemy();
   }
 
-  public getRandomSpawnTime(wave: WaveConfig) {
+  public getRandomSpawnTime() {
     const spawnTime = math.randomRange(
       this.timeBetweenSpawns - this.spawnTimeVariance,
       this.timeBetweenSpawns + this.spawnTimeVariance
@@ -42,14 +44,13 @@ export class WaveConfig extends Component {
   }
 
   public getStartingWaypoint() {
-    console.log("this.path", this.path);
-    return this.path;
+    return this.pathInstance;
   }
 
   public getWaypoints() {
     const waypoints = [];
-    for (let i = 0; i < this.path.children.length; i++) {
-      waypoints.push(this.path.children[i]);
+    for (let i = 0; i < this.pathInstance.children.length; i++) {
+      waypoints.push(this.pathInstance.children[i]);
     }
     return waypoints;
   }
@@ -58,13 +59,26 @@ export class WaveConfig extends Component {
     return this.duration;
   }
 
-  spawnEnemies() {
-      const enemyCount = this.getEnemyCount();
-      for (let i = 0; i < enemyCount; i++) {
-        const enemyPrefab = this.getEnemyPrefab(i);
-        const enemy = instantiate(enemyPrefab);
-        enemy.parent = this.node; // EnemySpawner
-        enemy.setPosition(this.getStartingWaypoint().position);
+  spawner = function* () {
+    const enemyCount = this.getEnemyCount();
+    for (let i = 0; i < enemyCount; i++) {
+      const enemyPrefab = this.getEnemyPrefab(i);
+      yield instantiate(enemyPrefab);
+    }
+  };
+
+  spawnEnemy() {
+    const { value, done } = this.spawnerIterator.next();
+    if (done) {
+      console.log('end wave of enemies');
+      return;
+    }
+    if (value) {
+      value.setParent(this.node);
+      value.setPosition(this.getStartingWaypoint().position);
+      setTimeout(() => {
+        this.spawnEnemy();
+      }, this.getRandomSpawnTime() * 1000);
     }
   }
 }

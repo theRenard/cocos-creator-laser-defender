@@ -1,15 +1,16 @@
 import { _decorator, Component, Node, instantiate, Prefab, math } from "cc";
 const { ccclass, property } = _decorator;
-import { WaveConfig } from "./WaveConfig";
 
 @ccclass("EnemySpawner")
 export class EnemySpawner extends Component {
   @property(Prefab)
   wavePrefabs: Prefab[] = [];
   @property timeBetweenWave = 5;
+  spawnerIterator = null;
 
   start() {
-    this.spawnWaves();
+    this.spawnerIterator = this.spawner();
+    this.spawnWave();
   }
 
   get currentWave() {
@@ -20,11 +21,23 @@ export class EnemySpawner extends Component {
     return this.currentWave;
   }
 
-  spawnWaves() {
+  spawner = function* () {
     for (const wavePrefab of this.wavePrefabs) {
-      const wave = instantiate(wavePrefab);
-      console.log("instantiate Prefab", wavePrefab.name);
-      wave.setParent(this.node);
+      yield instantiate(wavePrefab);
+    }
+  };
+
+  spawnWave() {
+    const { value, done } = this.spawnerIterator.next();
+    if (done) {
+      console.log('endgame');
+      return;
+    }
+    if (value) {
+      value.setParent(this.node);
+      setTimeout(() => {
+        this.spawnWave();
+      }, this.timeBetweenWave * 1000);
     }
   }
 }
