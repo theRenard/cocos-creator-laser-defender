@@ -6,10 +6,11 @@ export class EnemySpawner extends Component {
   @property(Prefab)
   wavePrefabs: Prefab[] = [];
   @property timeBetweenWave = 5;
-  spawnerIterator = null;
+  @property isLooping = false;
+  spawnerGenerator: Generator = null;
 
   start() {
-    this.spawnerIterator = this.spawner();
+    this.spawnerGenerator = this.spawner();
     this.spawnWave();
   }
 
@@ -21,23 +22,27 @@ export class EnemySpawner extends Component {
     return this.currentWave;
   }
 
-  spawner = function* () {
+  *spawner() {
     for (const wavePrefab of this.wavePrefabs) {
       yield instantiate(wavePrefab);
     }
   };
 
   spawnWave() {
-    const { value, done } = this.spawnerIterator.next();
-    if (done) {
-      console.log('endgame');
-      return;
-    }
-    if (value) {
-      value.setParent(this.node);
-      setTimeout(() => {
-        this.spawnWave();
-      }, this.timeBetweenWave * 1000);
-    }
+      const { value, done } = this.spawnerGenerator.next();
+      if (done) {
+        console.log('endgame');
+        if (this.isLooping) {
+          this.spawnerGenerator = this.spawner();
+          this.spawnWave();
+        }
+        return;
+      }
+      if (value) {
+        value.setParent(this.node);
+        setTimeout(() => {
+          this.spawnWave();
+        }, this.timeBetweenWave * 1000);
+      }
   }
 }

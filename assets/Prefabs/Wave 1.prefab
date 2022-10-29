@@ -84,10 +84,10 @@
       "__uuid__": "27a6247f-943b-437f-96fe-c6cfaaa56453",
       "__expectedType__": "cc.Prefab"
     },
-    "duration": 0.5,
-    "timeBetweenSpawns": 0.5,
-    "spawnTimeVariance": 0.3,
-    "minimumSpawnTime": 0.1,
+    "duration": 1,
+    "timeBetweenSpawns": 1,
+    "spawnTimeVariance": 1,
+    "minimumSpawnTime": 1,
     "_id": ""
   },
   {

@@ -37,6 +37,8 @@ export class PlayerInput extends Component {
       case KeyCode.ARROW_DOWN:
         this.moveDown();
         break;
+      case KeyCode.SPACE:
+        this.isFiring();
     }
   }
 
@@ -47,8 +49,14 @@ export class PlayerInput extends Component {
       case KeyCode.ARROW_UP:
       case KeyCode.ARROW_DOWN:
         this.stopMoving();
+        break;
+      case KeyCode.SPACE:
+        this.isNotFiring();
+        break
+
     }
   }
+
 
   moveLeft() {
     this.player.onMove(v2(-1, 0));
@@ -68,5 +76,13 @@ export class PlayerInput extends Component {
 
   stopMoving() {
     // this.player.onMove(v2(0, 0));
+  }
+
+  isFiring() {
+    this.player.onFire(true);
+  }
+
+  isNotFiring() {
+    this.player.onFire(false);
   }
 }

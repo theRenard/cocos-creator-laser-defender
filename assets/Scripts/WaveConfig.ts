@@ -18,12 +18,12 @@ export class WaveConfig extends Component {
   @property timeBetweenSpawns = 0.5;
   @property spawnTimeVariance = 0.3;
   @property minimumSpawnTime = 0.1;
-  spawnerIterator = null;
+  spawnerGenerator: Generator = null;
 
   start() {
     console.log("start", this.node.name);
     this.pathInstance = instantiate(this.pathPrefab);
-    this.spawnerIterator = this.spawner();
+    this.spawnerGenerator = this.spawner();
     this.spawnEnemy();
   }
 
@@ -59,7 +59,7 @@ export class WaveConfig extends Component {
     return this.duration;
   }
 
-  spawner = function* () {
+  *spawner() {
     const enemyCount = this.getEnemyCount();
     for (let i = 0; i < enemyCount; i++) {
       const enemyPrefab = this.getEnemyPrefab(i);
@@ -68,7 +68,7 @@ export class WaveConfig extends Component {
   };
 
   spawnEnemy() {
-    const { value, done } = this.spawnerIterator.next();
+    const { value, done } = this.spawnerGenerator.next();
     if (done) {
       console.log('end wave of enemies');
       return;

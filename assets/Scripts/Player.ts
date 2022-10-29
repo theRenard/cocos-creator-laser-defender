@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Vec2, Vec3, Camera, Canvas, math } from "cc";
 const { ccclass, property } = _decorator;
-
+import { Shooter } from "./Shooter";
 @ccclass("Player")
 export class Player extends Component {
   @property
@@ -9,6 +9,11 @@ export class Player extends Component {
   minBounds = new Vec2(-385, -740);
   maxBounds = new Vec2(385, -210);
 
+  shooter: Shooter = null;
+
+  onLoad() {
+    this.shooter = this.node.getComponent(Shooter);
+  }
 
   start() {
     this.initBounds();
@@ -43,5 +48,9 @@ export class Player extends Component {
 
   onMove(inputValue: Vec2) {
     this.rawInput.set(inputValue.x, inputValue.y, 0);
+  }
+
+  onFire(inputValue: boolean) {
+    this.shooter.isFiring = inputValue;
   }
 }
