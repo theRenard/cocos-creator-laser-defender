@@ -1,46 +1,62 @@
-import { _decorator, Component, Node, Vec3, UITransform } from 'cc';
+import { _decorator, Component, Node, Vec3, UITransform, instantiate, Vec2, math, Sprite } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Scroller')
 export class Scroller extends Component {
-    firstNode: Node = null;
-    secondNode: Node = null;
-    topPosition: number;
-    bottomPosition: number;
-
+    nodeHeight: number = 0;
+    bottomNode: Node = null;
+    upperNode: Node = null;
+    topYPosition: number;
+    bottomTPosition: number;
+    restartYPosition = 0;
     @property scrollSpeed: number = 100;
+    invertedPosition = false;
     start() {
-        this.firstNode = this.node.children[0];
-        this.secondNode = this.node.children[1];
+        if (!this.node.replicated) {
+            this.nodeHeight = this.node.getComponent(UITransform).height;
+            this.bottomNode = this.node;
+            this.upperNode = this.clone();
 
-        this.topPosition = this.firstNode.getPosition().y;
+            this.topYPosition = this.upperNode.getPosition().y;
+            this.bottomTPosition = this.bottomNode.getPosition().y - this.nodeHeight;
+            this.restartYPosition = -this.nodeHeight;
+        }
+    }
 
-        this.bottomPosition = this.secondNode.getPosition().y - this.secondNode.getComponent(UITransform).height;
-
-        console.log(this.topPosition, this.bottomPosition);
-
-
+    clone() {
+        const clone = instantiate(this.node);
+        clone.replicated = true;
+        const clonePosition = new Vec3(this.node.position.x, this.node.position.y + this.node.getComponent(UITransform).height);
+        clone.parent = this.node.parent;
+        clone.setPosition(clonePosition);
+        return clone;
     }
 
     scrollBackground(deltaTime: number) {
-        const firstNodeNewPosition = this.firstNode.position.y - this.scrollSpeed * deltaTime;
-        const secondNodeNewPosition = this.secondNode.position.y - this.scrollSpeed * deltaTime;
+        const upperNodeNewPosition = this.upperNode.position.y - this.scrollSpeed * deltaTime;
+        const gap = this.invertedPosition ? this.nodeHeight : - this.nodeHeight;
+        const bottomNodeNewPosition = upperNodeNewPosition + gap;
 
-        if (firstNodeNewPosition < this.bottomPosition) {
-            this.firstNode.setPosition(new Vec3(0, this.topPosition, 0));
+        if (upperNodeNewPosition < this.restartYPosition) {
+            this.upperNode.setPosition(new Vec3(0, this.topYPosition, 0));
+            this.invertedPosition = false;
         } else {
-            this.firstNode.setPosition(new Vec3(0, firstNodeNewPosition, 0));
+            this.upperNode.setPosition(new Vec3(0, upperNodeNewPosition));
         }
 
-        if (secondNodeNewPosition < this.bottomPosition) {
-            this.secondNode.setPosition(this.secondNode.position.x, this.topPosition);
+        if (bottomNodeNewPosition < this.restartYPosition) {
+            this.bottomNode.setPosition(new Vec3(0, this.topYPosition, 0));
+            this.invertedPosition = true;
         } else {
-            this.secondNode.setPosition(this.secondNode.position.x, secondNodeNewPosition);
+            this.bottomNode.setPosition(new Vec3(0, bottomNodeNewPosition, 0));
         }
+
     }
 
     update(deltaTime: number) {
-        this.scrollBackground(deltaTime);
+        if (!this.node.replicated) {
+            this.scrollBackground(deltaTime);
+        }
     }
 }
 
