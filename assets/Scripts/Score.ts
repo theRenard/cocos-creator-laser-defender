@@ -12,7 +12,7 @@ export class Score extends Component {
         this.scoreKeeper = this.node.scene.getComponentInChildren(ScoreKeeper);
     }
 
-    onDestroy() {
+    addScore() {
         this.scoreKeeper.addScore(this.score);
     }
 }

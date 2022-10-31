@@ -13,6 +13,7 @@ import {
 } from "cc";
 import { CameraShake } from "./CameraShake";
 import { DamageDealer } from "./DamageDealer";
+import { Score } from "./Score";
 const { ccclass, property } = _decorator;
 
 @ccclass("Health")
@@ -28,9 +29,11 @@ export class Health extends Component {
   @property applyCameraShake: boolean = false;
 
   cameraShake: CameraShake;
+  score: Score;
 
   onLoad() {
     this.cameraShake = this.node.scene.getComponentInChildren(CameraComponent).getComponent(CameraShake);
+    this.score = this.node.getComponent(Score);
   }
 
   start() {
@@ -63,6 +66,7 @@ export class Health extends Component {
     if (this.health <= 0) {
       setTimeout(() => {
         if (this?.node.isValid) this.node.destroy();
+        if (this.score) this.score.addScore();
       })
     }
   }
