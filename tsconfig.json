@@ -4,6 +4,9 @@
 
   /* Add your custom configuration here. */
   "compilerOptions": {
-    "strict": false
+    "strict": false,
+    "lib": [
+      "es2017","DOM"
+  ],
   }
 }

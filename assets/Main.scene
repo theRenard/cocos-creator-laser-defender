@@ -21,11 +21,11 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 58
+      "__id__": 59
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 59
+      "__id__": 60
     },
     "_id": "1a917533-5e27-4aea-a8fc-a7a30f575894"
   },
@@ -53,19 +53,19 @@
         "__id__": 35
       },
       {
-        "__id__": 49
+        "__id__": 50
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 55
-      },
-      {
         "__id__": 56
       },
       {
         "__id__": 57
+      },
+      {
+        "__id__": 58
       }
     ],
     "_prefab": null,
@@ -1043,7 +1043,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Panel",
+    "_name": "UI",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -1060,6 +1060,9 @@
     "_components": [
       {
         "__id__": 48
+      },
+      {
+        "__id__": 49
       }
     ],
     "_prefab": null,
@@ -1204,7 +1207,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 15
     },
     "_anchorPoint": {
@@ -1324,8 +1327,8 @@
       "__id__": 39
     },
     "_mode": 0,
-    "_totalLength": 500,
-    "_progress": 0.5,
+    "_totalLength": 300,
+    "_progress": 1,
     "_reverse": false,
     "_id": "f8zoQ1eSdHxZuh7CQuk+kh"
   },
@@ -1457,7 +1460,7 @@
     "_fontFamily": "8-bit hud",
     "_lineHeight": 32,
     "_overflow": 0,
-    "_enableWrapText": true,
+    "_enableWrapText": false,
     "_font": {
       "__uuid__": "ad8aa671-b683-4cb0-863f-b39ff9d645f3",
       "__expectedType__": "cc.BitmapFont"
@@ -1498,7 +1501,7 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 0,
     "_originalHeight": 0,
-    "_alignMode": 2,
+    "_alignMode": 1,
     "_lockFlags": 32,
     "_id": "967jL9/FlMiYKl/WYUMJ9e"
   },
@@ -1524,6 +1527,26 @@
     "_id": "7c4J6J+DpJMZ0QDtEODC6X"
   },
   {
+    "__type__": "1974ci34nZBH7bWww/E6xPH",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 35
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "healthSlider": {
+      "__id__": 42
+    },
+    "player": {
+      "__id__": 16
+    },
+    "scoreText": {
+      "__id__": 46
+    },
+    "_id": "adrOGPo2dLqa4wTBsjpaA5"
+  },
+  {
     "__type__": "cc.Node",
     "_name": "GameManager",
     "_objFlags": 512,
@@ -1533,9 +1556,6 @@
     "_children": [],
     "_active": true,
     "_components": [
-      {
-        "__id__": 50
-      },
       {
         "__id__": 51
       },
@@ -1547,6 +1567,9 @@
       },
       {
         "__id__": 54
+      },
+      {
+        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -1583,7 +1606,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "__prefab": null,
@@ -1604,7 +1627,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "__prefab": null,
@@ -1627,7 +1650,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "__prefab": null,
@@ -1638,7 +1661,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "__prefab": null,
@@ -1656,7 +1679,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 49
+      "__id__": 50
     },
     "_enabled": true,
     "__prefab": null,
@@ -1735,19 +1758,19 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 60
-    },
-    "shadows": {
       "__id__": 61
     },
-    "_skybox": {
+    "shadows": {
       "__id__": 62
     },
-    "fog": {
+    "_skybox": {
       "__id__": 63
     },
-    "octree": {
+    "fog": {
       "__id__": 64
+    },
+    "octree": {
+      "__id__": 65
     }
   },
   {

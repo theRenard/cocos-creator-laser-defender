@@ -5,6 +5,7 @@ import {
   input,
   Input,
   Node,
+  EventGamepad,
   KeyCode,
   v2,
 } from "cc";
@@ -17,6 +18,7 @@ export class PlayerInput extends Component {
   onLoad() {
     input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
     input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
+    input.on(Input.EventType.GAMEPAD_INPUT, this.gamepadInput, this);
   }
 
   start() {
@@ -52,11 +54,18 @@ export class PlayerInput extends Component {
         break;
       case KeyCode.SPACE:
         this.isNotFiring();
-        break
-
+        break;
     }
   }
 
+  gamepadInput(e: EventGamepad) {
+    const gp = e.gamepad;
+    const a = gp.buttonSouth.getValue();
+    const { x, y } = gp.leftStick.getValue();
+    if (a === 1) this.isFiring();
+    if (a === 0) this.isNotFiring();
+    if (x !== 0 || y !== 0) this.player.onMove(v2(x, y));
+  }
 
   moveLeft() {
     this.player.onMove(v2(-1, 0));
