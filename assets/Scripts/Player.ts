@@ -64,6 +64,7 @@ export class Player extends Component {
   }
 
   onMove(inputValue: Vec2) {
+    console.log(inputValue);
     this.rawInput.set(inputValue.x, inputValue.y, 0);
   }
 

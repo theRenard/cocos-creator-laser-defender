@@ -332,8 +332,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -390,
-      "y": -710,
+      "x": -380,
+      "y": -680,
       "z": 0
     },
     "_lrot": {
@@ -631,6 +631,7 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "gamepadDeadZone": 0.2,
     "_id": "d4TveO0aBKxJFARQT/uy1m"
   },
   {
@@ -643,7 +644,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "health": 50,
+    "health": 100,
     "hitEffectPrefab": {
       "__uuid__": "fee5246b-7ed1-41cd-8f81-16efc523ddd2",
       "__expectedType__": "cc.Prefab"
@@ -715,8 +716,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 780,
-      "height": 1110
+      "width": 760,
+      "height": 1080
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -738,10 +739,10 @@
     "_target": {
       "__id__": 2
     },
-    "_left": 60,
-    "_right": 60,
+    "_left": 70,
+    "_right": 70,
     "_top": 400,
-    "_bottom": 90,
+    "_bottom": 120,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": true,
@@ -1535,6 +1536,14 @@
       },
       {
         "__uuid__": "283d9a5a-219a-4eb6-8dcf-834c27cc4e85",
+        "__expectedType__": "cc.Prefab"
+      },
+      {
+        "__uuid__": "461ebef8-7785-42aa-82d3-c66732fefe21",
+        "__expectedType__": "cc.Prefab"
+      },
+      {
+        "__uuid__": "0dc0d832-45a8-49b9-8189-8d54f2633e34",
         "__expectedType__": "cc.Prefab"
       }
     ],

@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "Wave 1",
+    "_name": "Wave 3",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Wave 1",
+    "_name": "Wave 3",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -68,28 +68,28 @@
     },
     "enemyPrefabs": [
       {
-        "__uuid__": "10e8feee-7536-4c02-b2a9-271b2970c0db",
+        "__uuid__": "7cf0eb3f-7cf1-4905-9b7d-f52ff63c4029",
         "__expectedType__": "cc.Prefab"
       },
       {
-        "__uuid__": "10e8feee-7536-4c02-b2a9-271b2970c0db",
+        "__uuid__": "7cf0eb3f-7cf1-4905-9b7d-f52ff63c4029",
         "__expectedType__": "cc.Prefab"
       },
       {
-        "__uuid__": "10e8feee-7536-4c02-b2a9-271b2970c0db",
+        "__uuid__": "e01a1cd7-c6ee-4a4c-856b-82020910adb9",
         "__expectedType__": "cc.Prefab"
       },
       {
-        "__uuid__": "10e8feee-7536-4c02-b2a9-271b2970c0db",
+        "__uuid__": "7cf0eb3f-7cf1-4905-9b7d-f52ff63c4029",
         "__expectedType__": "cc.Prefab"
       },
       {
-        "__uuid__": "10e8feee-7536-4c02-b2a9-271b2970c0db",
+        "__uuid__": "7cf0eb3f-7cf1-4905-9b7d-f52ff63c4029",
         "__expectedType__": "cc.Prefab"
       }
     ],
     "pathPrefab": {
-      "__uuid__": "27a6247f-943b-437f-96fe-c6cfaaa56453",
+      "__uuid__": "59ed3780-4459-421c-ade2-09ab35e69f58",
       "__expectedType__": "cc.Prefab"
     },
     "duration": 1,
