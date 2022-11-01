@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "Projectile_Enemy",
+    "_name": "Projectile Enemy",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Projectile_Enemy",
+    "_name": "Projectile Enemy",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -73,7 +73,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "laserBlue07",
+    "_name": "Sprite",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1

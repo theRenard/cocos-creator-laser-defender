@@ -1,10 +1,12 @@
 import { _decorator, Component, Node, director } from 'cc';
 const { ccclass, property } = _decorator;
+import { scoreManager } from './Singletons/scoreManager';
 
 @ccclass('LevelManager')
 export class LevelManager extends Component {
 
     loadGameScene() {
+        scoreManager.instance.resetScore();
         director.loadScene('Game');
     }
 
@@ -18,7 +20,7 @@ export class LevelManager extends Component {
 
     quitGame() {
         console.log('quit game');
-        director.end();
+        director.pause();
     }
 }
 

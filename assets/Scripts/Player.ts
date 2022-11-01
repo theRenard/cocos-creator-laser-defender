@@ -1,4 +1,14 @@
-import { _decorator, Component, Node, Vec2, Vec3, Camera, Canvas, math } from "cc";
+import {
+  _decorator,
+  Component,
+  Node,
+  Vec2,
+  Vec3,
+  Camera,
+  Canvas,
+  math,
+  UITransform,
+} from "cc";
 const { ccclass, property } = _decorator;
 import { Shooter } from "./Shooter";
 @ccclass("Player")
@@ -6,13 +16,17 @@ export class Player extends Component {
   @property
   moveSpeed = 100;
   rawInput: Vec3 = new Vec3();
-  minBounds = new Vec2(-385, -740);
-  maxBounds = new Vec2(385, -210);
+  minBounds = new Vec2();
+  maxBounds = new Vec2();
 
   shooter: Shooter = null;
 
+  shipBoundaries: Node = null;
+
   onLoad() {
     this.shooter = this.node.getComponent(Shooter);
+    this.shipBoundaries = this.node.parent;
+    console.log(this.shipBoundaries);
   }
 
   start() {
@@ -24,7 +38,10 @@ export class Player extends Component {
   }
 
   initBounds() {
-    const camera = this.node.scene.getComponentInChildren(Camera);
+    const transform = this.shipBoundaries.getComponent(UITransform);
+    const { width, height } = transform.getBoundingBox();
+    this.minBounds = new Vec2(0, 0);
+    this.maxBounds = new Vec2(width, height);
   }
 
   private move(deltaTime: number) {
@@ -35,9 +52,9 @@ export class Player extends Component {
     );
     const position = this.node.position;
     const clampedPosition = new Vec3(
-        math.clamp(position.x, this.minBounds.x, this.maxBounds.x),
-        math.clamp(position.y, this.minBounds.y, this.maxBounds.y),
-        0
+      math.clamp(position.x, this.minBounds.x, this.maxBounds.x),
+      math.clamp(position.y, this.minBounds.y, this.maxBounds.y),
+      0
     );
     this.node.setPosition(
       clampedPosition.x + delta.x,

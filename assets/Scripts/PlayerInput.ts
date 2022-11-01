@@ -8,6 +8,7 @@ import {
   EventGamepad,
   KeyCode,
   v2,
+  director,
 } from "cc";
 const { ccclass, property } = _decorator;
 import { Player } from "./Player";
@@ -94,4 +95,5 @@ export class PlayerInput extends Component {
   isNotFiring() {
     this.player.onFire(false);
   }
+
 }

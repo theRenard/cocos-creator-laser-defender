@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "enemy 0",
+    "_name": "Enemy 0",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy 0",
+    "_name": "Enemy 0",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -82,7 +82,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemyRed4",
+    "_name": "Sprite",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -331,6 +331,7 @@
       "__uuid__": "fee5246b-7ed1-41cd-8f81-16efc523ddd2",
       "__expectedType__": "cc.Prefab"
     },
+    "isPlayer": false,
     "applyCameraShake": false,
     "_id": ""
   },

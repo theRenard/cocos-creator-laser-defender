@@ -1,30 +1,27 @@
 import { _decorator, Component, Node, math } from 'cc';
 const { ccclass, property } = _decorator;
+import { scoreManager } from './Singletons/scoreManager';
 
 @ccclass('ScoreKeeper')
 export class ScoreKeeper extends Component {
 
-    private currentScore: number = 0;
-    start() {
+    scoreManager: scoreManager
 
+    onLoad() {
+        this.scoreManager = scoreManager.instance;
     }
 
-    public getScore() {
-        return this.currentScore;
+    getScore() {
+        return this.scoreManager.getScore();
     }
 
-    public resetScore(value: number) {
-        this.currentScore = 0;
+    resetScore() {
+        this.scoreManager.resetScore(0);
     }
 
-    public addScore(value: number) {
-        this.currentScore += value;
-        math.clamp(this.currentScore, 0, Number.MAX_SAFE_INTEGER);
-        console.log("Score: " + this.currentScore);
+    addScore(value: number) {
+        this.scoreManager.addScore(value);
     }
 
-    update(deltaTime: number) {
-
-    }
 }
 
