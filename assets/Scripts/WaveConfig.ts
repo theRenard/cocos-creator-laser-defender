@@ -68,17 +68,19 @@ export class WaveConfig extends Component {
   };
 
   spawnEnemy() {
-    const { value, done } = this.spawnerGenerator.next();
-    if (done) {
-      console.log('end wave of enemies');
-      return;
-    }
-    if (value) {
-      value.setParent(this.node);
-      value.setPosition(this.getStartingWaypoint().position);
-      setTimeout(() => {
-        this.spawnEnemy();
-      }, this.getRandomSpawnTime() * 1000);
+    if (this.spawnerGenerator) {
+      const { value, done } = this.spawnerGenerator.next();
+      if (done) {
+        console.log('end wave of enemies');
+        return;
+      }
+      if (value) {
+        value.setParent(this.node);
+        value.setPosition(this.getStartingWaypoint().position);
+        setTimeout(() => {
+          this.spawnEnemy();
+        }, this.getRandomSpawnTime() * 1000);
+      }
     }
   }
 }

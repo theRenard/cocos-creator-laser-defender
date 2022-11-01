@@ -64,16 +64,20 @@ export class Shooter extends Component {
       setTimeout(() => {
         this.canFire = true;
       }, 1000 / this.baseFiringRate);
-      const { value } = this.spawnerGenerator.next();
-      const projectile = value;
-      projectile.setPosition(this.node.position);
-      const rigidBody = projectile.getComponent(RigidBody2D);
-      const speed = this.useIA ? -this.projectileSpeed : this.projectileSpeed;
-      rigidBody.linearVelocity = new Vec2(0, speed);
-      this.node.parent.addChild(projectile);
-      setTimeout(() => {
-        if (projectile.isValid) projectile.destroy();
-      }, this.projectileLifetime * 1000);
+
+      // verify is the spawner exists
+      if (this.spawnerGenerator) {
+        const { value } = this.spawnerGenerator.next();
+        const projectile = value;
+        projectile.setPosition(this.node.position);
+        const rigidBody = projectile.getComponent(RigidBody2D);
+        const speed = this.useIA ? -this.projectileSpeed : this.projectileSpeed;
+        rigidBody.linearVelocity = new Vec2(0, speed);
+        this.node.parent.addChild(projectile);
+        setTimeout(() => {
+          if (projectile.isValid) projectile.destroy();
+        }, this.projectileLifetime * 1000);
+      }
     }
   }
 }

@@ -29,6 +29,7 @@ export class EnemySpawner extends Component {
   };
 
   spawnWave() {
+    if (this.spawnerGenerator) {
       const { value, done } = this.spawnerGenerator.next();
       if (done) {
         console.log('endgame');
@@ -44,5 +45,6 @@ export class EnemySpawner extends Component {
           this.spawnWave();
         }, this.timeBetweenWave * 1000);
       }
+    }
   }
 }

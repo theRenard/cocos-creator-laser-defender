@@ -13,6 +13,7 @@ import {
 } from "cc";
 import { CameraShake } from "./CameraShake";
 import { DamageDealer } from "./DamageDealer";
+import { LevelManager } from "./LevelManager";
 import { Score } from "./Score";
 const { ccclass, property } = _decorator;
 
@@ -26,13 +27,18 @@ export class Health extends Component {
   @property({ type: Prefab })
   hitEffectPrefab: Prefab = null;
 
+  @property isPlayer = false;
+
   @property applyCameraShake: boolean = false;
 
   cameraShake: CameraShake;
   score: Score;
 
+  levelManager: LevelManager;
+
   onLoad() {
     this.cameraShake = this.node.scene.getComponentInChildren(CameraComponent).getComponent(CameraShake);
+    this.levelManager = this.node.scene.getComponentInChildren(LevelManager);
     this.score = this.node.getComponent(Score);
   }
 
@@ -63,12 +69,15 @@ export class Health extends Component {
 
   public takeDamage(damage: number) {
     this.health -= damage;
-    if (this.health <= 0) {
-      setTimeout(() => {
-        if (this?.node.isValid) this.node.destroy();
-        if (this.score) this.score.addScore();
-      })
-    }
+    if (this.health <= 0) this.die();
+  }
+
+  die() {
+    setTimeout(() => {
+      if (this?.node.isValid) this.node.destroy();
+      if (this.score) this.score.addScore();
+      if (this.isPlayer) this.levelManager.loadGameOverScene();
+    })
   }
 
   playHitEffect() {
