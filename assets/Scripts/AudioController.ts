@@ -8,7 +8,7 @@ export class AudioController extends Component {
   @property(AudioSource)
   _audioSource: AudioSource = null!
 
-  onLoad () {
+  start () {
       const audioSource = this.node.getComponent(AudioSource)! ;
       assert(audioSource);
       this._audioSource = audioSource;

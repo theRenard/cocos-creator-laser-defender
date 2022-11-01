@@ -5,6 +5,10 @@ import { scoreManager } from './Singletons/scoreManager';
 @ccclass('LevelManager')
 export class LevelManager extends Component {
 
+    start () {
+        director.preloadScene('Game');
+    }
+
     loadGameScene() {
         scoreManager.instance.resetScore();
         director.loadScene('Game');

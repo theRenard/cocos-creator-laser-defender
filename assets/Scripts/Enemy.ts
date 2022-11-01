@@ -9,7 +9,6 @@ export class Enemy extends Component {
   waypointIndex = 0;
 
   start() {
-    console.log("start", this.node.name);
     this.waveConfig = this.node.parent.getComponent(WaveConfig);
     this.waypoints = this.waveConfig.getWaypoints();
     this.node.setPosition(this.waypoints[this.waypointIndex].position);
