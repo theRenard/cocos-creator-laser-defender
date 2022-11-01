@@ -5,5 +5,11 @@
   "creator": {
     "version": "3.6.1"
   },
-  "description": "Laser Defender game tutorial"
+  "scripts": {
+    "deploy": "gh-pages -d build/web-desktop"
+  },
+  "description": "Laser Defender game tutorial",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
