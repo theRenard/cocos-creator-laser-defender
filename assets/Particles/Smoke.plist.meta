@@ -48,7 +48,7 @@
     "startSizeVar": 5,
     "endSize": 56.15121841430664,
     "endSizeVar": 0,
-    "positionType": 1,
+    "positionType": 0,
     "sourcePos": {
       "x": 0,
       "y": 0
@@ -81,6 +81,6 @@
     "endRadiusVar": 0,
     "rotatePerS": 0,
     "rotatePerSVar": 0,
-    "spriteFrameUuid": "45b7a435-b6c0-41ce-a901-6afa9b6539de@f9941"
+    "spriteFrameUuid": ""
   }
 }

@@ -2,12 +2,12 @@
   "ver": "1.1.40",
   "importer": "prefab",
   "imported": true,
-  "uuid": "790dc1ed-a94e-4a58-bab3-459499aa369c",
+  "uuid": "75afedc7-28f5-48bc-891b-6d2a99634f40",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "PlayerExplosionParticles"
+    "syncNodeName": "PowerUp"
   }
 }

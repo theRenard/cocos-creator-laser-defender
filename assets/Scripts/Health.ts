@@ -22,10 +22,15 @@ export class Health extends Component {
   @property
   public health: number = 100;
 
+  _health: number = 0;
+
   collider: CircleCollider2D | BoxCollider2D = null;
 
   @property({ type: Prefab })
   hitEffectPrefab: Prefab = null;
+
+  @property({ type: Prefab })
+  explosionEffectPrefab: Prefab = null;
 
   @property isPlayer = false;
 
@@ -37,18 +42,21 @@ export class Health extends Component {
   levelManager: LevelManager;
 
   onLoad() {
-    this.cameraShake = this.node.scene.getComponentInChildren(CameraComponent).getComponent(CameraShake);
+    this.cameraShake = this.node.scene
+      .getComponentInChildren(CameraComponent)
+      .getComponent(CameraShake);
     this.levelManager = this.node.scene.getComponentInChildren(LevelManager);
     this.score = this.node.getComponent(Score);
+    this._health = this.health;
   }
 
   start() {
-    this.collider = this.getComponent(CircleCollider2D) || this.getComponent(BoxCollider2D);
+    this.collider =
+      this.getComponent(CircleCollider2D) || this.getComponent(BoxCollider2D);
     this.collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
   }
 
   onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D) {
-    console.log("onBeginContact");
     const damageDealer = otherCollider.getComponent(DamageDealer);
 
     if (damageDealer != null) {
@@ -66,6 +74,10 @@ export class Health extends Component {
     this.health = value;
   }
 
+  public fillHealth() {
+    this.health = this._health;
+  }
+
   public takeDamage(damage: number) {
     this.health -= damage;
     if (this.health <= 0) this.die();
@@ -73,10 +85,22 @@ export class Health extends Component {
 
   die() {
     setTimeout(() => {
+      this.playExplosionEffect();
       if (this?.node.isValid) this.node.destroy();
       if (this.score) this.score.addScore();
-      if (this.isPlayer) this.levelManager.loadGameOverScene();
-    })
+    });
+
+    if (this.isPlayer) {
+      setTimeout(this.levelManager.loadGameOverScene.bind(this), 4000);
+    }
+  }
+
+  playExplosionEffect() {
+    if (this.explosionEffectPrefab) {
+      const node = instantiate(this.explosionEffectPrefab);
+      node.parent = this.node.parent;
+      node.setPosition(this.node.position);
+    }
   }
 
   playHitEffect() {
@@ -85,7 +109,6 @@ export class Health extends Component {
       node.parent = this.node.parent;
       node.setPosition(this.node.position);
     }
-
   }
 
   shakeCamera() {
@@ -94,4 +117,3 @@ export class Health extends Component {
     }
   }
 }
-

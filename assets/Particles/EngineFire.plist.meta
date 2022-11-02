@@ -32,7 +32,7 @@
     "startSizeVar": 0,
     "endSize": 0,
     "endSizeVar": 0,
-    "positionType": 0,
+    "positionType": 1,
     "sourcePos": {
       "x": 0,
       "y": 0

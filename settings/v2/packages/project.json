@@ -28,12 +28,17 @@
       {
         "index": 2,
         "name": "ENEMY"
+      },
+      {
+        "index": 3,
+        "name": "POWERUP"
       }
     ],
     "collisionMatrix": {
       "0": 7,
-      "1": 5,
-      "2": 3
+      "1": 13,
+      "2": 3,
+      "3": 2
     }
   }
 }

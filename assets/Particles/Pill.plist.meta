@@ -2,22 +2,22 @@
   "ver": "1.0.2",
   "importer": "particle",
   "imported": true,
-  "uuid": "78b9ae9c-21e5-4edb-953e-52d2149b39cb",
+  "uuid": "422abb74-c42c-4ac8-8292-a3be4e01f35c",
   "files": [
     ".json",
     ".plist"
   ],
   "subMetas": {},
   "userData": {
-    "totalParticles": 77,
-    "life": 0.4229653000000001,
+    "totalParticles": 3,
+    "life": 0.9553020000457764,
     "lifeVar": 0,
-    "emissionRate": 536.6870521056927,
+    "emissionRate": 3.140368176614563,
     "duration": -1,
-    "srcBlendFactor": 770,
+    "srcBlendFactor": 1,
     "dstBlendFactor": 1,
     "startColor": {
-      "_val": 2134605053
+      "_val": 2146236415
     },
     "startColorVar": {
       "_val": 0
@@ -28,32 +28,32 @@
     "endColorVar": {
       "_val": 0
     },
-    "startSize": 16.41096,
-    "startSizeVar": 0,
+    "startSize": 44,
+    "startSizeVar": 5,
     "endSize": 0,
     "endSizeVar": 0,
-    "positionType": 2,
+    "positionType": 0,
     "sourcePos": {
       "x": 0,
       "y": 0
     },
     "posVar": {
-      "x": 2,
+      "x": 0,
       "y": 0
     },
-    "angle": 270,
-    "angleVar": 3.700000047683716,
+    "angle": 0,
+    "angleVar": 296.7787170410156,
     "startSpin": 0,
-    "startSpinVar": 92.90880999999999,
-    "endSpin": 0,
+    "startSpinVar": 0,
+    "endSpin": 311.84674072265625,
     "endSpinVar": 0,
     "emitterMode": 0,
     "gravity": {
       "x": 0,
       "y": 0
     },
-    "speed": 80,
-    "speedVar": 0,
+    "speed": 172.74139404296875,
+    "speedVar": 30,
     "radialAccel": 0,
     "radialAccelVar": 0,
     "tangentialAccel": 0,

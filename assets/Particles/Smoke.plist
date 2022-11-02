@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>absolutePosition</key>
-	<true/>
+	<false/>
 	<key>angle</key>
 	<real>270</real>
 	<key>angleVariance</key>
@@ -57,7 +57,7 @@
 	<key>particleLifespanVariance</key>
 	<real>0.95186948776245117</real>
 	<key>positionType</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>radialAccelVariance</key>
 	<real>0.0</real>
 	<key>radialAcceleration</key>
@@ -78,10 +78,6 @@
 	<real>7</real>
 	<key>sourcePositionVariancey</key>
 	<real>7</real>
-	<key>sourcePositionx</key>
-	<real>160</real>
-	<key>sourcePositiony</key>
-	<real>240</real>
 	<key>speed</key>
 	<real>98.710533142089844</real>
 	<key>speedVariance</key>
