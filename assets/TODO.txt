@@ -9,6 +9,7 @@
 • Add lives system
 • Add more weapons
 • Add more enemies
+• Change font
 
 ## Bugs
 
