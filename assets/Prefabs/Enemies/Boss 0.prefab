@@ -335,6 +335,7 @@
       "__expectedType__": "cc.Prefab"
     },
     "explosionEffectPrefab": null,
+    "smokeEffectPrefab": null,
     "isPlayer": false,
     "applyCameraShake": false,
     "_id": ""
@@ -399,7 +400,7 @@
     "__prefab": {
       "__id__": 23
     },
-    "score": 50,
+    "score": 150,
     "_id": ""
   },
   {

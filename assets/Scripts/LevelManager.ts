@@ -1,30 +1,29 @@
 import { _decorator, Component, Node, director } from 'cc';
 const { ccclass, property } = _decorator;
 import { scoreManager } from './Singletons/scoreManager';
+import { levelManager } from './Singletons/levelManager';
 
 @ccclass('LevelManager')
 export class LevelManager extends Component {
 
     start () {
-        director.preloadScene('Game');
+        levelManager.instance.start();
     }
 
     loadGameScene() {
-        scoreManager.instance.resetScore();
-        director.loadScene('Game');
+        levelManager.instance.loadGameScene();
     }
 
     loadMainMenuScene() {
-        director.loadScene('MainMenu');
+        levelManager.instance.loadMainMenuScene();
     }
 
     loadGameOverScene() {
-        director.loadScene('GameOver');
+        levelManager.instance.loadGameOverScene();
     }
 
     quitGame() {
-        console.log('quit game');
-        director.pause();
+        levelManager.instance.quitGame();
     }
 }
 

@@ -335,6 +335,7 @@
       "__uuid__": "469f846a-d284-470a-86e6-696f6f0cd784",
       "__expectedType__": "cc.Prefab"
     },
+    "smokeEffectPrefab": null,
     "isPlayer": false,
     "applyCameraShake": false,
     "_id": ""

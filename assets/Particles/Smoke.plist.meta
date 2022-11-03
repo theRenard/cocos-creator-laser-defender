@@ -11,17 +11,17 @@
   "userData": {
     "totalParticles": 77,
     "life": 1.175051212310791,
-    "lifeVar": 0.9518694877624512,
+    "lifeVar": 0.7249656915664673,
     "emissionRate": 65.52905881316954,
     "duration": -1,
-    "srcBlendFactor": 1,
+    "srcBlendFactor": 770,
     "dstBlendFactor": 771,
     "startColor": {
       "_val": 2134605053,
-      "r": 253.22345852851868,
-      "g": 124.85307723283768,
-      "b": 59.67426270246506,
-      "a": 127.5
+      "r": 238.35671067237854,
+      "g": 249.59041267633438,
+      "b": 233.27417939901352,
+      "a": 255
     },
     "startColorVar": {
       "_val": 0,
@@ -46,7 +46,7 @@
     },
     "startSize": 3.3122658729553223,
     "startSizeVar": 5,
-    "endSize": 56.15121841430664,
+    "endSize": 103.40135192871094,
     "endSizeVar": 0,
     "positionType": 0,
     "sourcePos": {
@@ -54,11 +54,11 @@
       "y": 0
     },
     "posVar": {
-      "x": 7,
+      "x": 0,
       "y": 7
     },
     "angle": 270,
-    "angleVar": 10,
+    "angleVar": 29.941011428833008,
     "startSpin": 41.726829528808594,
     "startSpinVar": 253.6255645751953,
     "endSpin": 0,
@@ -69,10 +69,10 @@
       "y": 0
     },
     "speed": 98.71053314208984,
-    "speedVar": 30,
-    "radialAccel": 0,
+    "speedVar": 0,
+    "radialAccel": 50.240234375,
     "radialAccelVar": 0,
-    "tangentialAccel": 0,
+    "tangentialAccel": 12.5185546875,
     "tangentialAccelVar": 0,
     "rotationIsDir": false,
     "startRadius": 0,

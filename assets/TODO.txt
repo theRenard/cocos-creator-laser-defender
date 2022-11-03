@@ -5,7 +5,7 @@
 • Add powerup system
 • Add shield powerup
 • Add better particle effects
-• Add ship explosion/scene
+√ Add ship explosion/scene
 • Add lives system
 • Add more weapons
 • Add more enemies
@@ -13,3 +13,4 @@
 
 ## Bugs
 
+• Can't really pause the game

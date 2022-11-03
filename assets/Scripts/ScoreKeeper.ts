@@ -16,7 +16,7 @@ export class ScoreKeeper extends Component {
     }
 
     resetScore() {
-        this.scoreManager.resetScore(0);
+        this.scoreManager.resetScore();
     }
 
     addScore(value: number) {
