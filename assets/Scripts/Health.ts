@@ -67,6 +67,7 @@ export class Health extends Component {
       this.takeDamage(damageDealer.getDamage());
       this.playHitEffect();
       this.shakeCamera();
+      if (!this.isPlayer) damageDealer.hit();
     }
   }
 

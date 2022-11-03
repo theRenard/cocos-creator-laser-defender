@@ -9,13 +9,11 @@ export class EnemySpawner extends Component {
   @property isLooping = false;
   spawnerGenerator: Generator = null;
 
+  currentWave: Node = null;
+
   start() {
     this.spawnerGenerator = this.spawner();
     this.spawnWave();
-  }
-
-  get currentWave() {
-    return this.wavePrefabs[0];
   }
 
   public getCurrentWave() {
@@ -41,6 +39,7 @@ export class EnemySpawner extends Component {
       }
       if (value) {
         value.setParent(this.node);
+        this.currentWave = value;
         setTimeout(() => {
           this.spawnWave();
         }, this.timeBetweenWave * 1000);

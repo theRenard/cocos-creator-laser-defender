@@ -26,7 +26,6 @@ export class Player extends Component {
   onLoad() {
     this.shooter = this.node.getComponent(Shooter);
     this.shipBoundaries = this.node.parent;
-    console.log(this.shipBoundaries);
   }
 
   start() {
