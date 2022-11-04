@@ -12,8 +12,9 @@ export class DamageDealer extends Component {
 
     public hit () {
         setTimeout(() => {
-            if (this?.node.isValid) this.node.destroy();
-        }, 0)
+            const isPlayer = this.node.name === 'Player';
+            if (this?.node.isValid && !isPlayer) this.node.destroy();
+        });
     }
 
 }

@@ -91,6 +91,7 @@ export class Health extends Component {
   }
 
   die() {
+    console.log("die", this.node.name);
     setTimeout(() => {
       this.playExplosionEffect();
       if (this?.node.isValid) this.node.destroy();
