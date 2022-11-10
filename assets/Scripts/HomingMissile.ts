@@ -16,8 +16,8 @@ const { ccclass, property, requireComponent } = _decorator;
 export class HomingMissile extends Component {
   public target: Node = null;
   private rigidbody: RigidBody2D;
-  public speed: number = 600;
-  public rotateSpeed: number = 1;
+  @property speed: number = 600;
+  @property rotateSpeed: number = 1;
   private enemySpawner: EnemySpawner;
 
   start() {
