@@ -4,7 +4,7 @@ Clone of [delivery driver](https://www.gamedev.tv/courses/1394720/lectures/33955
 
 ![preview](./assets/preview.png)
 
-Demo here: https://tabanella.me/cocos-engine-laser-defender/
+Demo here: https://tabanella.me/cocos-creator-laser-defender/
 
 
 List of subjects
