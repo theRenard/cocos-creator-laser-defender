@@ -1,6 +1,6 @@
 # Laser Defender 
 
-Clone of [delivery driver](https://www.gamedev.tv/courses/1394720/lectures/33955613) game from [Gamedev.tv](https://www.gamedev.tv) done in cocos creator 3.6
+Clone of [laser defender](https://www.gamedev.tv/courses/1394720/lectures/33955613) game from [Gamedev.tv](https://www.gamedev.tv) done in cocos creator 3.6
 
 ![preview](./assets/preview.png)
 
