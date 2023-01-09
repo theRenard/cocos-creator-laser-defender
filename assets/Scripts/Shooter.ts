@@ -22,7 +22,7 @@ export class Shooter extends Component {
   public isFiring = false;
   canFire = true;
   fireInterval: number;
-  spawnerGenerator: Generator<Node, Node>;
+  factoryGenerator: Generator<Node, Node>;
 
   start() {
     if (this.useIA) {
@@ -31,7 +31,7 @@ export class Shooter extends Component {
         this.fire();
       }, this.getRandomFireRate());
     }
-    this.spawnerGenerator = this.spawner();
+    this.factoryGenerator = this.factory();
   }
 
   onDestroy() {
@@ -44,7 +44,7 @@ export class Shooter extends Component {
     this.fire();
   }
 
-  *spawner(): Generator<Node, Node> {
+  *factory(): Generator<Node, Node> {
     while (true) {
       yield instantiate(this.projectilePrefab);
     }
@@ -65,9 +65,9 @@ export class Shooter extends Component {
         this.canFire = true;
       }, 1000 / this.baseFiringRate);
 
-      // verify is the spawner exists
-      if (this.spawnerGenerator) {
-        const { value } = this.spawnerGenerator.next();
+      // verify is the factory exists
+      if (this.factoryGenerator) {
+        const { value } = this.factoryGenerator.next();
         const projectile = value;
         projectile.setPosition(this.node.position);
         const rigidBody = projectile.getComponent(RigidBody2D);

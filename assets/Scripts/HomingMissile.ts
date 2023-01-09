@@ -8,7 +8,7 @@ import {
   Vec3,
   v2,
 } from "cc";
-import { EnemySpawner } from "./EnemySpawner";
+import { EnemyFactory } from "./EnemyFactory";
 const { ccclass, property, requireComponent } = _decorator;
 
 @ccclass("HomingMissile")
@@ -18,16 +18,16 @@ export class HomingMissile extends Component {
   private rigidbody: RigidBody2D;
   @property speed: number = 600;
   @property rotateSpeed: number = 1;
-  private enemySpawner: EnemySpawner;
+  private enemyFactory: EnemyFactory;
 
   start() {
     this.rigidbody = this.node.getComponent(RigidBody2D);
-    this.enemySpawner = this.node.scene.getComponentInChildren(EnemySpawner);
+    this.enemyFactory = this.node.scene.getComponentInChildren(EnemyFactory);
     this.acquireTarget();
   }
 
   acquireTarget() {
-    const wave = this.enemySpawner.getCurrentWave();
+    const wave = this.enemyFactory.getCurrentWave();
     this.target =
       (wave && wave.children && wave.children[0]) || null;
       console.log(this.target);

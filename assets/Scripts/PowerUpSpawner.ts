@@ -1,8 +1,8 @@
 import { _decorator, Component, Node, Prefab, instantiate } from "cc";
 const { ccclass, property } = _decorator;
 
-@ccclass("PowerUpSpawner")
-export class PowerUpSpawner extends Component {
+@ccclass("PowerUpFactory")
+export class PowerUpFactory extends Component {
   @property({ type: Prefab }) powerUpPrefab: Prefab = null;
 
   onDestroy() {
